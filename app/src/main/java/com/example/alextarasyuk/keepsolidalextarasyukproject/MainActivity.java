@@ -58,9 +58,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("text", editText.getText().toString());
                 startActivityForResult(intent, 1);
                 break;
-            default:
-                break;
-
         }
     }
 
