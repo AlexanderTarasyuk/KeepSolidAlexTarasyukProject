@@ -16,7 +16,8 @@
         android:inputType="textEmailAddress"
         android:shadowColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorAccent"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:layout_gravity="center"/>
 
     <CheckBox
         android:id="@+id/chBox"
@@ -26,7 +27,10 @@
         android:checked="true"
         android:text="@string/checkBoxName"
         android:textSize="24dp"
-        android:visibility="visible" />
+        android:visibility="visible"
+        android:textColor="#D2691E"
+        android:shadowColor="#00FFFF"
+        android:layout_gravity="center"/>
 
     <Button
         android:id="@+id/btnClear"
@@ -36,7 +40,9 @@
         android:layout_margin="12dp"
         android:shadowColor="@color/colorAccent"
         android:text="@string/buttonClear"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:layout_gravity="center"
+        android:textColor="#00FF00"/>
 
     <Button
         android:id="@+id/btnSend"
@@ -45,7 +51,9 @@
         android:layout_margin="12dp"
         android:shadowColor="@color/colorPrimary"
         android:text="@string/buttonSend"
-        android:textSize="24dp" />
+        android:textSize="24dp"
+        android:layout_gravity="center"
+        android:textColor="@color/colorAccent"/>
 
 
 </LinearLayout>
