@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="C:\AndroidProjects\AllTheRecipes-Starter-3\KeepSolidAlexTarasyukProject\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="C:\AndroidProjects\AllTheRecipes-Starter-3\KeepSolidAlexTarasyukProject\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_fd67d38f02b518b769b9a6e287ea0bf69e1fa092\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\AndroidProjects\AllTheRecipes-Starter-3\KeepSolidAlexTarasyukProject\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="946eaee3091899ad0687ec40ebb00c8f61a3290b">
+        <dex dex="C:\AndroidProjects\AllTheRecipes-Starter-3\KeepSolidAlexTarasyukProject\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_4c6099c7c1c20a9c391097a8815ee1d3b6ccac8e\classes.dex" />
+    </item>
+
+</items>

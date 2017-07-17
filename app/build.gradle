@@ -7,8 +7,8 @@ android {
         applicationId "com.example.alextarasyuk.keepsolidalextarasyukproject"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 1
-        versionName "3.0"
+        versionCode 3
+        versionName "lesson 3"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
