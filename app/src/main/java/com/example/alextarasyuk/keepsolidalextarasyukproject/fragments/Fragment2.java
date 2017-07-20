@@ -21,11 +21,7 @@ public class Fragment2 extends Fragment {
     }
 
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,7 +29,7 @@ public class Fragment2 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment2, null);
         Button buttonOk = (Button) view.findViewById(R.id.btn_Ok_fragm2);
-        final TextView textView = getActivity().findViewById(R.id.textView);
+        final TextView textView = getActivity().findViewById(R.id.editTextFragment);
         final CheckBox checkBox = getActivity().findViewById(R.id.chBoxFragment);
         final Button buttonSend = getActivity().findViewById(R.id.btnSendFragment);
 
@@ -50,6 +46,7 @@ public class Fragment2 extends Fragment {
                         beginTransaction().
                         replace(R.id.frame_inActivity_forFragment2,
                                 getActivity().getFragmentManager().findFragmentById(R.id.fragment1)).
+
                         addToBackStack(null).
                         commit();
 
