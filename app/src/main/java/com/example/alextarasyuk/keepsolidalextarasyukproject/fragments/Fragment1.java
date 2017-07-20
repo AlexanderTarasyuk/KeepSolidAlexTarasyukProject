@@ -35,8 +35,8 @@ public class Fragment1 extends Fragment {
         btnClear = (Button) view.findViewById(R.id.btnClearFragment);
         btnSend = (Button) view.findViewById(R.id.btnSendFragment);
         checkBox = (CheckBox) view.findViewById(R.id.chBoxFragment);
-//checkBox set checked for convenience
-        checkBox.setChecked(true);
+
+
         return view;
 
     }
