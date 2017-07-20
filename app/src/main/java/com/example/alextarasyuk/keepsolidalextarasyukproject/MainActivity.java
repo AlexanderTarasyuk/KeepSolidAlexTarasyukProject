@@ -1,20 +1,22 @@
 package com.example.alextarasyuk.keepsolidalextarasyukproject;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import com.example.alextarasyuk.keepsolidalextarasyukproject.fragments.Fragment1;
+import com.example.alextarasyuk.keepsolidalextarasyukproject.fragments.Fragment2;
+import com.example.alextarasyuk.keepsolidalextarasyukproject.fragments.Fragment3;
 
-    private EditText editText;
-    private Button btnClear;
-    private Button btnSend;
-    private CheckBox checkBox;
-    private String nameFromEditText;
+
+public class MainActivity extends AppCompatActivity {
+
+    public static Fragment1 fragment1;
+    private Fragment2 fragment2;
+    private Fragment3 fragment3;
+    private FragmentManager fragmentManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,50 +25,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         //initializing buttons, edit text, checkbox
 
-        editText = (EditText) findViewById(R.id.editText);
-        btnClear = (Button) findViewById(R.id.btnClear);
-        btnSend = (Button) findViewById(R.id.btnSend);
-        checkBox = (CheckBox) findViewById(R.id.chBox);
-//checkBox set checked for convenience
-        checkBox.setChecked(true);
-// buttons and etc assigned listeners
-        btnSend.setOnClickListener(this);
-        btnClear.setOnClickListener(this);
-        editText.setOnClickListener(this);
-        checkBox.setOnClickListener(this);
-
-        nameFromEditText = editText.getText().toString();
-
+        fragment1 = new Fragment1();
+        fragment2 = new Fragment2();
+        fragment3 = new Fragment3();
+        fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction()
+                .add(R.id.frame_inActivity_forFragment1, fragment1)
+                .add(R.id.frame_inActivity_forFragment2, fragment2)
+                .add(R.id.frame_inActivity_forFragment3, fragment3)
+                .commit();
 
     }
 
-    //logic of pressing buttons is written
-    @Override
-    public void onClick(View view) {
 
-        switch (view.getId()) {
-            case R.id.btnClear:
-                editText.setText("");
-                break;
-            case R.id.btnSend:
-                if (editText.getText().toString().equals("")
-                        | !editText.getText().toString().contains("@")
-                        | !checkBox.isChecked()) {
-                    break;
-                }
-                Intent intent = new Intent(this, SecondActivity.class);
-                intent.putExtra("text", editText.getText().toString());
-                startActivityForResult(intent, 1);
-                break;
-        }
-    }
-
-    //waiting for result from secondActivity
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (data == null) {
-            return;
-        }
-        editText.setText(data.getStringExtra("text2"));
-    }
 }

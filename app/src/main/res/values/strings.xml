@@ -11,4 +11,9 @@
     <string name="buttonApprove"> Подтвердить</string>
     <string name="buttonReject">Отклонить </string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_rejected_adress">Пользователь отклонил адрес</string>
+    <string name="clean" />
+
 </resources>

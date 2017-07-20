@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#77ff0011"
+    android:orientation="vertical">
+    tools:context="com.example.alextarasyuk.keepsolidalextarasyukproject.fragments.Fragment2">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fragment2" />
+
+    <CheckBox
+        android:id="@+id/chBoxFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:layout_margin="12dp"
+        android:checked="true"
+        android:shadowColor="#00FFFF"
+        android:text="@string/checkBoxName"
+        android:textColor="#D2691E"
+        android:textSize="12dp"
+        />
+
+    <Button
+        android:id="@+id/btn_Ok_fragm2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="OK"
+        android:textSize="12dp" />
+
+</LinearLayout>

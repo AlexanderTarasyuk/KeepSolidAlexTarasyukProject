@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#77ff00"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fragment1" />
+
+    <EditText
+        android:id="@+id/editTextFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="@string/hint"
+        android:inputType="textEmailAddress"
+        android:shadowColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorAccent"
+        android:textSize="12dp" />
+
+    <Button
+        android:id="@+id/btnClearFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:shadowColor="@color/colorAccent"
+        android:text="@string/buttonClear"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="12dp" />
+
+    <Button
+        android:id="@+id/btnSendFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:shadowColor="@color/colorPrimary"
+        android:text="@string/buttonSend"
+        android:textColor="@color/colorAccent"
+        android:textSize="12dp" />
+
+</LinearLayout>

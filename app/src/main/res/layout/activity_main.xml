@@ -1,59 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.alextarasyuk.keepsolidalextarasyukproject.MainActivity">
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:hint="@string/hint"
-        android:inputType="textEmailAddress"
-        android:shadowColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorAccent"
-        android:textSize="24dp"
-        android:layout_gravity="center"/>
+    <!--<fragment-->
+        <!--android:id="@+id/fragment1"-->
+        <!--android:name="com.example.alextarasyuk.keepsolidalextarasyukproject.fragments.Fragment1"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--tools:layout="@layout/fragment_fragment1"></fragment>-->
 
-    <CheckBox
-        android:id="@+id/chBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:checked="true"
-        android:text="@string/checkBoxName"
-        android:textSize="24dp"
-        android:visibility="visible"
-        android:textColor="#D2691E"
-        android:shadowColor="#00FFFF"
-        android:layout_gravity="center"/>
+    <!--<fragment-->
+        <!--android:id="@+id/fragment2"-->
+        <!--android:name="com.example.alextarasyuk.keepsolidalextarasyukproject.fragments.Fragment2"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--tools:layout="@layout/fragment_fragment2"></fragment>-->
 
-    <Button
-        android:id="@+id/btnClear"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="170dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:shadowColor="@color/colorAccent"
-        android:text="@string/buttonClear"
-        android:textSize="24dp"
-        android:layout_gravity="center"
-        android:textColor="@color/colorPrimaryDark"/>
+    <!--<fragment-->
+        <!--android:id="@+id/fragment3"-->
+        <!--android:name="com.example.alextarasyuk.keepsolidalextarasyukproject.fragments.Fragment3"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_weight="1"-->
+        <!--tools:layout="@layout/fragment_fragment3"></fragment>-->
 
-    <Button
-        android:id="@+id/btnSend"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:shadowColor="@color/colorPrimary"
-        android:text="@string/buttonSend"
-        android:textSize="24dp"
-        android:layout_gravity="center"
-        android:textColor="@color/colorAccent"/>
+    <FrameLayout
+        android:id="@+id/frame_inActivity_forFragment1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_inActivity_forFragment2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+    </FrameLayout>
+
+    <FrameLayout
+    android:id="@+id/frame_inActivity_forFragment3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1">
+</FrameLayout>
 
 
 </LinearLayout>
