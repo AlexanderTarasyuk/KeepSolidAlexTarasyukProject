@@ -1,7 +1,5 @@
 package com.example.alextarasyuk.keepsolidalextarasyukproject.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -41,9 +39,11 @@ public class Fragment3 extends Fragment {
                 checkBox.setChecked(false);
                 butoonSend.setClickable(false);
 
+                getActivity().
                 getFragmentManager().
                         beginTransaction().
-                        replace(R.id.frame_inActivity_forFragment3, getFragmentManager().findFragmentById(R.id.fragment1)).
+                        replace(R.id.frame_inActivity_forFragment3,
+                                getActivity().getFragmentManager().findFragmentById(R.id.fragment1)).
                         addToBackStack(null).
                         commit();
             }

@@ -33,10 +33,9 @@ public class Fragment2 extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment2, null);
         Button buttonOk = (Button) view.findViewById(R.id.btn_Ok_fragm2);
-        final TextView textView=(TextView) view.findViewById(R.id.textView);
-        final CheckBox checkBox=(CheckBox) view.findViewById(R.id.chBoxFragment);
-        final Button butoonSend=(Button) view.findViewById(R.id.btnSendFragment);
-
+        final TextView textView = (TextView) view.findViewById(R.id.textView);
+        final CheckBox checkBox = (CheckBox) view.findViewById(R.id.chBoxFragment);
+        final Button butoonSend = (Button) view.findViewById(R.id.btnSendFragment);
 
 
         buttonOk.setOnClickListener(new View.OnClickListener() {
@@ -46,14 +45,13 @@ public class Fragment2 extends Fragment {
                 textView.setText("");
                 checkBox.setChecked(false);
                 butoonSend.setClickable(false);
-
-                getFragmentManager().
+                getActivity().
+                        getFragmentManager().
                         beginTransaction().
-                        replace(R.id.frame_inActivity_forFragment2, getFragmentManager().findFragmentById(R.id.fragment1)).
+                        replace(R.id.frame_inActivity_forFragment2,
+                                getActivity().getFragmentManager().findFragmentById(R.id.fragment1)).
                         addToBackStack(null).
                         commit();
-
-
 
 
             }
