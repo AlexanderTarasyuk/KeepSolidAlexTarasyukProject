@@ -15,6 +15,8 @@ import com.example.alextarasyuk.keepsolidalextarasyukproject.R;
 
 public class Fragment2 extends Fragment {
 
+    //declaring views and listener
+
     private Fragment2Listener fragment2Listener;
     private Button buttonOk;
     private TextView textView;
@@ -35,6 +37,7 @@ public class Fragment2 extends Fragment {
         checkBox = getActivity().findViewById(R.id.chBoxFragment);
         buttonSend = getActivity().findViewById(R.id.btnSendFragment);
 
+        //logic of buttonOK
 
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,9 +64,13 @@ public class Fragment2 extends Fragment {
         return view;
     }
 
+    //interface to interact with another fragments through mainActivity
+
     public interface Fragment2Listener {
         void onFragmentInteraction(String str);
     }
+
+    //initializing listener
 
     @Override
     public void onAttach(Context context) {
@@ -75,6 +82,8 @@ public class Fragment2 extends Fragment {
             throw new ClassCastException(context.toString());
         }
     }
+
+    //logic of method updateDetails
 
     public void updateDetails() {
 

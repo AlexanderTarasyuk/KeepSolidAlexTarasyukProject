@@ -22,6 +22,8 @@ import com.example.alextarasyuk.keepsolidalextarasyukproject.SecondActivity;
 public class Fragment1 extends Fragment implements View.OnClickListener {
 
 
+
+//declaring views
     private EditText editText;
     private Button btnClear;
     private Button btnSend;
@@ -41,12 +43,11 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
         btnSend = (Button) view.findViewById(R.id.btnSendFragment);
         checkBox = (CheckBox) view.findViewById(R.id.chBoxFragment);
 
-
+        //view are set listeners
         btnSend.setOnClickListener(this);
         btnClear.setOnClickListener(this);
         editText.setOnClickListener(this);
         checkBox.setOnClickListener(this);
-
 
         return view;
 
@@ -77,7 +78,7 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
 
     }
 
-
+    //when resumed checkbox is unchecked and buttonSend is unclicable
     @Override
     public void onResume() {
         super.onResume();
@@ -93,6 +94,8 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
         }
         editText.setText(data.getStringExtra("text2"));
     }
+
+    //method to edit text
 
     public void editText(String text) {
         TextView view = (TextView) getView().findViewById(R.id.textView);
