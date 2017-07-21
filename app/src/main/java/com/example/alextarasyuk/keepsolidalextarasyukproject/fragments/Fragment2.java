@@ -1,7 +1,6 @@
 package com.example.alextarasyuk.keepsolidalextarasyukproject.fragments;
 
 import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,16 +10,19 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import com.example.alextarasyuk.keepsolidalextarasyukproject.MainActivity;
 import com.example.alextarasyuk.keepsolidalextarasyukproject.R;
 
 
 public class Fragment2 extends Fragment {
 
+    private Fragment2Listener fragment2Listener;
+    private Button buttonOk;
+    private TextView textView;
+    private CheckBox checkBox;
+    private Button buttonSend;
+
     public Fragment2() {
     }
-
-
 
 
     @Override
@@ -28,27 +30,30 @@ public class Fragment2 extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_fragment2, null);
-        Button buttonOk = (Button) view.findViewById(R.id.btn_Ok_fragm2);
-        final TextView textView = getActivity().findViewById(R.id.editTextFragment);
-        final CheckBox checkBox = getActivity().findViewById(R.id.chBoxFragment);
-        final Button buttonSend = getActivity().findViewById(R.id.btnSendFragment);
+        buttonOk = (Button) view.findViewById(R.id.btn_Ok_fragm2);
+        textView = getActivity().findViewById(R.id.editTextFragment);
+        checkBox = getActivity().findViewById(R.id.chBoxFragment);
+        buttonSend = getActivity().findViewById(R.id.btnSendFragment);
 
 
         buttonOk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                textView.setText("");
-                checkBox.setChecked(false);
-                buttonSend.setClickable(false);
-                getActivity().
-                        getFragmentManager().
-                        beginTransaction().
-                        replace(R.id.frame_inActivity_forFragment2,
-                                getActivity().getFragmentManager().findFragmentById(R.id.fragment1)).
+//                textView.setText("");
+//                checkBox.setChecked(false);
+//                buttonSend.setClickable(false);
+//                getActivity().
+//                        getFragmentManager().
+//                        beginTransaction().
+//                        replace(R.id.frame_inActivity_forFragment2,
+//                                getActivity().getFragmentManager().findFragmentById(R.id.fragment1)).
+//
+//                        addToBackStack(null).
+//                        setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).
+//                        commit();
 
-                        addToBackStack(null).
-                        commit();
+                updateDetails();
 
 
             }
@@ -56,5 +61,25 @@ public class Fragment2 extends Fragment {
         return view;
     }
 
+    public interface Fragment2Listener {
+        void onFragmentInteraction(String str);
+    }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        try {
+            fragment2Listener = (Fragment2Listener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString());
+        }
+    }
+
+    public void updateDetails() {
+
+       String string="";
+        fragment2Listener.onFragmentInteraction(string);
+
+    }
 }
