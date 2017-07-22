@@ -1,10 +1,9 @@
 package com.example.alextarasyuk.keepsolidalextarasyukproject.fragments;
 
 
-import android.content.Intent;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.alextarasyuk.keepsolidalextarasyukproject.R;
-import com.example.alextarasyuk.keepsolidalextarasyukproject.SecondActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -22,12 +20,12 @@ import com.example.alextarasyuk.keepsolidalextarasyukproject.SecondActivity;
 public class Fragment1 extends Fragment implements View.OnClickListener {
 
 
-
-//declaring views
+    //declaring views
     private EditText editText;
     private Button btnClear;
     private Button btnSend;
     private CheckBox checkBox;
+    private FragmentManager fragmentManager;
 
     public Fragment1() {
     }
@@ -37,17 +35,33 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_fragment1, null);
+        View view = inflater.inflate(R.layout.fragment_fragment1, container, false );
         editText = (EditText) view.findViewById(R.id.editTextFragment);
         btnClear = (Button) view.findViewById(R.id.btnClearFragment);
         btnSend = (Button) view.findViewById(R.id.btnSendFragment);
         checkBox = (CheckBox) view.findViewById(R.id.chBoxFragment);
+        fragmentManager=getFragmentManager();
 
         //view are set listeners
-        btnSend.setOnClickListener(this);
-        btnClear.setOnClickListener(this);
-        editText.setOnClickListener(this);
-        checkBox.setOnClickListener(this);
+        btnSend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Fragment fragment2 = fragmentManager.findFragmentById(R.id.fragment2);
+                fragmentManager.beginTransaction().
+                        replace(R.id.frame_inActivity_forFragment1, fragment2)
+                        .commit();
+            }
+        });
+        btnClear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment3 = fragmentManager.findFragmentById(R.id.fragment3);
+                fragmentManager.beginTransaction().
+                        replace(R.id.frame_inActivity_forFragment1, fragment3).
+                        commit();
+            }
+        });
 
         return view;
 
@@ -57,20 +71,16 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
 
-        if(view!=null &checkBox.isChecked()) {
+        if (view != null & checkBox.isChecked()) {
 
             switch (view.getId()) {
                 case R.id.btnClearFragment:
-                    Fragment2 fragment2 = new Fragment2();
-                    getFragmentManager().beginTransaction().
-                            replace(R.id.frame_inActivity_forFragment1, fragment2).
-                            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).commit();
+
                     break;
                 case R.id.btnSendFragment:
-                    Fragment3 fragment3 = new Fragment3();
+                    Fragment fragment3 = new Fragment3();
                     getFragmentManager().beginTransaction().
                             replace(R.id.frame_inActivity_forFragment1, fragment3).
-                            setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN).
                             commit();
                     break;
             }
@@ -87,13 +97,13 @@ public class Fragment1 extends Fragment implements View.OnClickListener {
     }
 
     //waiting for result from secondActivity
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (data == null) {
-            return;
-        }
-        editText.setText(data.getStringExtra("text2"));
-    }
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        if (data == null) {
+//            return;
+//        }
+//        editText.setText(data.getStringExtra("text2"));
+//    }
 
     //method to edit text
 

@@ -1,22 +1,24 @@
 package com.example.alextarasyuk.keepsolidalextarasyukproject;
 
+import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 
 import com.example.alextarasyuk.keepsolidalextarasyukproject.fragments.Fragment1;
 import com.example.alextarasyuk.keepsolidalextarasyukproject.fragments.Fragment2;
 import com.example.alextarasyuk.keepsolidalextarasyukproject.fragments.Fragment3;
 
 
-public class MainActivity extends AppCompatActivity implements Fragment2.Fragment2Listener, Fragment3.Fragment3Listener {
+public class MainActivity
+        extends Activity
+        implements Fragment2.Fragment2Listener, Fragment3.Fragment3Listener {
 
     //declaring fragments
-    public Fragment1 fragment1;
-    private Fragment2 fragment2;
-    private Fragment3 fragment3;
+    private Fragment1 fragment1;
+    private Fragment fragment2;
+    private Fragment fragment3;
     private FragmentManager fragmentManager;
 
 
@@ -26,22 +28,18 @@ public class MainActivity extends AppCompatActivity implements Fragment2.Fragmen
         setContentView(R.layout.activity_main);
 
         //initializing fragments
-        fragment1 = new Fragment1();
-        fragment2 = new Fragment2();
-        fragment3 = new Fragment3();
-        fragmentManager=getSupportFragmentManager();
+        fragmentManager = getFragmentManager();
+        Fragment fragment1 = (Fragment1) fragmentManager.findFragmentById(R.id.fragment1);
         fragmentManager
                 .beginTransaction()
                 .add(R.id.frame_inActivity_forFragment1, fragment1)
-                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
                 .commit();
-
     }
-
 
     @Override
     public void onFragmentInteraction(String str) {
-        Fragment1 fragment1 = new Fragment1();
+
+
         fragment1.editText("");
         fragmentManager.beginTransaction().
                 replace(R.id.frame_inActivity_forFragment1, fragment1)
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements Fragment2.Fragmen
 
     @Override
     public void onFragmentInteraction3(String str) {
-        Fragment1 fragment1=new Fragment1();
+
         fragment1.editText(str);
 
         fragmentManager.beginTransaction()

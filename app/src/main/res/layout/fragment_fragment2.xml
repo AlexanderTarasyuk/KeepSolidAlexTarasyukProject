@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#77ff0011"
@@ -15,7 +16,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@mipmap/confirm_icon"/>
+        android:src="@mipmap/confirm_icon" />
 
     <CheckBox
         android:id="@+id/chBoxFragment"
@@ -27,8 +28,7 @@
         android:shadowColor="#00FFFF"
         android:text="@string/checkBoxName"
         android:textColor="#D2691E"
-        android:textSize="12dp"
-        />
+        android:textSize="12dp" />
 
     <Button
         android:id="@+id/btn_Ok_fragm2"

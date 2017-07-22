@@ -1,8 +1,9 @@
 package com.example.alextarasyuk.keepsolidalextarasyukproject.fragments;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ public class Fragment2 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_fragment2, null);
+        View view = inflater.inflate(R.layout.fragment_fragment2, container, false);
         buttonOk = (Button) view.findViewById(R.id.btn_Ok_fragm2);
         textView = getActivity().findViewById(R.id.editTextFragment);
         checkBox = getActivity().findViewById(R.id.chBoxFragment);

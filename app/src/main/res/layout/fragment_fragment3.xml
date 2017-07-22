@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#7700ff00"
@@ -18,7 +19,7 @@
         android:id="@+id/imageWithCross"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@mipmap/reject_icon"/>
+        android:src="@mipmap/reject_icon" />
 
     <Button
         android:id="@+id/btn_OK_fragment3"

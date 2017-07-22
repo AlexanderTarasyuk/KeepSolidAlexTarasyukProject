@@ -1,8 +1,9 @@
 package com.example.alextarasyuk.keepsolidalextarasyukproject.fragments;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +15,8 @@ import com.example.alextarasyuk.keepsolidalextarasyukproject.R;
 public class Fragment3 extends Fragment {
 
     //declaring views
-    Button buttonOk;
-    Fragment3Listener fragment3Listener;
+    private Button buttonOk;
+    private Fragment3Listener fragment3Listener;
 
     public Fragment3() {
 
@@ -25,7 +26,7 @@ public class Fragment3 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         //inflating views
-        View view = inflater.inflate(R.layout.fragment_fragment3, null);
+        View view = inflater.inflate(R.layout.fragment_fragment3, container, false);
         buttonOk = (Button) view.findViewById(R.id.btn_Ok_fragm2);
 
         //logic of clicking buttonOk
@@ -43,7 +44,7 @@ public class Fragment3 extends Fragment {
     }
 
 
-//initializing listener
+    //initializing listener
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
