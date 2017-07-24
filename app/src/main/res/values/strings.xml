@@ -15,5 +15,8 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="user_rejected_adress">Пользователь отклонил адрес</string>
     <string name="clean" />
+    <string name="fragm_text">StartPage</string>
+    <string name="frag_reject">PageReject</string>
+    <string name="frag_approve">PageApprove</string>
 
 </resources>

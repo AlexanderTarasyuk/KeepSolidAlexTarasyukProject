@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity implements View.OnClickListener {
 
+    //declaring views of activity
+
     private TextView textView;
     private Button buttonApprove;
     private Button buttonReject;
@@ -22,9 +24,10 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_second);
 
         //initializing buttons and textView
-        textView = (TextView) findViewById(R.id.textView);
-        buttonApprove = (Button) findViewById(R.id.btnApprove);
-        buttonReject = (Button) findViewById(R.id.btnReject);
+        textView = (TextView) findViewById(R.id.text_view);
+        buttonApprove = (Button) findViewById(R.id.btn_approve);
+        buttonReject = (Button) findViewById(R.id.btn_reject);
+        nameToPrint="";
 
         //buttons assigned listeners
         buttonApprove.setOnClickListener(this);
@@ -41,22 +44,24 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
 
-        switch (view.getId()) {
-            case R.id.btnApprove:
-                Intent intent = new Intent();
-                intent.putExtra("text2", "");
-                setResult(RESULT_OK, intent);
-                Toast.makeText(this, "Действие подтверждено", Toast.LENGTH_SHORT).show();
-                finish();
-                break;
+        if (view!=null) {
 
-            case R.id.btnReject:
-                Intent intent2 = new Intent();
-                intent2.putExtra("text2", textView.getText().toString());
-                setResult(RESULT_OK, intent2);
-                Toast.makeText(this, "Действие отменено", Toast.LENGTH_SHORT).show();
-                finish();
-                break;
+            switch (view.getId()) {
+                case R.id.btn_approve:
+                    Intent intent = new Intent();
+                    intent.putExtra("text2", textView.getText().toString());
+                    Toast.makeText(SecondActivity.this, "Посылаю имейл", Toast.LENGTH_SHORT).show();
+                    setResult(RESULT_OK, intent);
+                    finish();
+                    break;
+
+                case R.id.btn_reject:
+                    Intent intent2 = new Intent();
+                    intent2.putExtra("text2", textView.getText().toString());
+                    setResult(RESULT_CANCELED, intent2);
+                    finish();
+                    break;
+            }
         }
     }
 }
