@@ -53,26 +53,26 @@ public class MainActivity
 
         if (view != null) {
             switch (view.getId()) {
-                case R.id.btn_send_frag_text:
-                    if (textFragment.getEtText().equals("")) {
-                        Toast.makeText(this, "Нет текста", Toast.LENGTH_SHORT).show();
-                    } else if (!textFragment.getEtText().contains("@")) {
-                        Toast.makeText(this, "Неправильный мейл", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Intent intent = new Intent(this, SecondActivity.class);
-                        intent.putExtra("text", textFragment.getEtText());
-                        startActivityForResult(intent, 1);
-                    }
-                    break;
-
-                case R.id.btn_clear_frag_text:
-                    textFragment.setEtText("");
-                    break;
+//                case R.id.btn_send_frag_text:
+//                    if (textFragment.getEtText().equals("")) {
+//                        Toast.makeText(this, "Нет текста", Toast.LENGTH_SHORT).show();
+//                    } else if (!textFragment.getEtText().contains("@")) {
+//                        Toast.makeText(this, "Неправильный мейл", Toast.LENGTH_SHORT).show();
+//                    } else {
+//                        Intent intent = new Intent(this, SecondActivity.class);
+//                        intent.putExtra("text", textFragment.getEtText());
+//                        startActivityForResult(intent, 1);
+//                    }
+//                    break;
+//
+//                case R.id.btn_clear_frag_text:
+//                    textFragment.setEtText("");
+//                    break;
 
                 case R.id.btn_ok_frag_approve:
                     bundle.putString("Status", "Отклонено");
                     bundle.putString("text", text);
-                    textFragment.setArguments(bundle);
+//                    textFragment.setArguments(bundle);
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, textFragment)
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
@@ -82,7 +82,7 @@ public class MainActivity
 
                 case R.id.btn_ok_frag_reject:
                     bundle.putString("Status", "Принято");
-                    textFragment.setArguments(bundle);
+//                    textFragment.setArguments(bundle);
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, textFragment)
                             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
@@ -103,7 +103,6 @@ public class MainActivity
         super.onActivityResult(requestCode, resultCode, data);
         fragmentTransaction = fragmentManager.beginTransaction();
         if (data == null) {
-            textFragment.setEtText("Error");
             Toast.makeText(this, "Second Activity Error", Toast.LENGTH_SHORT).show();
         } else {
             text = data.getStringExtra("text2");
@@ -113,7 +112,6 @@ public class MainActivity
             } else if (resultCode == RESULT_OK) {
                 fragmentTransaction.replace(R.id.container, fragmApprove);
                 Toast.makeText(this, "Принято", Toast.LENGTH_SHORT).show();
-                textFragment.setEtText("");
             }
 
             fragmentTransaction.addToBackStack(null);

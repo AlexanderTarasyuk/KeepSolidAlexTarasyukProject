@@ -25,7 +25,7 @@ public class FragmReject extends Fragment {
                              Bundle savedInstanceState) {
         //inflating views
         View view = inflater.inflate(R.layout.fragm_reject, container, false);
-        btnOkFragReject = (view.findViewById(R.id.btn_ok_frag_reject));
+        btnOkFragReject = (Button) view.findViewById(R.id.btn_ok_frag_reject);
 
         //logic of clicking buttonOk
 
