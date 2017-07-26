@@ -1,18 +1,24 @@
 package com.example.alextarasyuk.keepsolidalextarasyukproject.fragments;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 
 import com.example.alextarasyuk.keepsolidalextarasyukproject.R;
+import com.example.alextarasyuk.keepsolidalextarasyukproject.SecondActivity;
+import com.example.alextarasyuk.keepsolidalextarasyukproject.adapters.UserRecyclerAdapter;
+import com.example.alextarasyuk.keepsolidalextarasyukproject.listeners.OnUserRecyclerItemClickListener;
+import com.example.alextarasyuk.keepsolidalextarasyukproject.model.User;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,15 +26,12 @@ import com.example.alextarasyuk.keepsolidalextarasyukproject.R;
 public class FragmentText extends Fragment {
 
 
-    //declaring views
-    private EditText editText;
-    private Button btnClear;
-    private Button btnSend;
-    private CheckBox checkBox;
-    private FragmentManager fragmentManager;
-    private Bundle bundle;
+    private RecyclerView usersRecyclerView;
+    private UserRecyclerAdapter adapter;
+    private ArrayList<User> users;
 
     public FragmentText() {
+
     }
 
 
@@ -36,55 +39,42 @@ public class FragmentText extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.frag_text, container, false);
-        editText = view.findViewById(R.id.ed_text_textfrag);
-        btnClear = view.findViewById(R.id.btn_clear_frag_text);
-        btnSend = view.findViewById(R.id.btn_send_frag_text);
-        checkBox = view.findViewById(R.id.ch_box_frag_text);
-        fragmentManager = getFragmentManager();
+        View v = inflater.inflate(R.layout.frag_text, container, false);
 
-        //view are set listeners
-        btnSend.setOnClickListener((View.OnClickListener) this.getActivity());
-        btnClear.setOnClickListener((View.OnClickListener) this.getActivity());
+        users = new ArrayList<>();
 
-        btnSend.setEnabled(true);
-        checkBox.setChecked(true);
+        users.add(new User("Brad Pitt", 0, true, "pit@gmail.ru", User.Category.FRIENDS));
+        users.add(new User("Ilon Mosk", 1, true, "mosk@gmail.ru", User.Category.WORK));
+        users.add(new User("Christopher Nolan", 2, false, "nolan@gmail.ru", User.Category.FAMILY));
+        users.add(new User("Soros", 3, false, "soros@gmail.ru", User.Category.OTHERS));
 
 
-        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+        Collections.sort(users, new Comparator<User>() {
             @Override
-            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                btnSend.setEnabled(checkBox.isChecked());
+            public int compare(User u1, User u2) {
+                return u1.getUserName().toLowerCase().compareTo(u2.getUserName().toLowerCase());
             }
         });
 
-        bundle = this.getArguments();
+        usersRecyclerView = (RecyclerView) v.findViewById(R.id.rv_container);
 
-        return view;
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (bundle != null) {
-            String s = bundle.getString("Status");
-            if (s.equalsIgnoreCase("Принято")) {
-                editText.setText("");
-                checkBox.setChecked(false);
-            } else if (s.equalsIgnoreCase("Отклонено")) {
-                editText.setText(bundle.getString("text2"));
-                checkBox.setChecked(false);
+        adapter = new UserRecyclerAdapter(users, getActivity(), new OnUserRecyclerItemClickListener() {
+            @Override
+            public void onItemClick(View v, int position) {
+                Intent intent = new Intent(getActivity(), SecondActivity.class);
+                intent.putExtra("Username", users.get(position).getUserName());
+                intent.putExtra("UserID", users.get(position).getUserId());
+                intent.putExtra("UserStatus", users.get(position).isOnline());
+                intent.putExtra("UserAddress", users.get(position).getUserAddress());
+                intent.putExtra("UserCategory", users.get(position).getCategory());
+                startActivityForResult(intent, 1);
             }
-        }
-    }
+        });
 
-    public String getEtText() {
-        return editText.getText().toString();
-    }
+        usersRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        usersRecyclerView.setAdapter(adapter);
 
-    public void setEtText(String s) {
-        editText.setText(s);
+        return v;
     }
 }
-
