@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.alextarasyuk.keepsolidalextarasyukproject.R;
 import com.example.alextarasyuk.keepsolidalextarasyukproject.listeners.OnUserRecyclerItemClickListener;
 import com.example.alextarasyuk.keepsolidalextarasyukproject.model.User;
 
