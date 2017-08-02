@@ -24,9 +24,9 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         setContentView(R.layout.activity_second);
 
         //initializing buttons and textView
-        textView = (TextView) findViewById(R.id.text_view);
-        buttonApprove = (Button) findViewById(R.id.btn_approve);
-        buttonReject = (Button) findViewById(R.id.btn_reject);
+        textView = (TextView) findViewById(R.id.tv_act_second);
+        buttonApprove = (Button) findViewById(R.id.btn_approve_act_second);
+        buttonReject = (Button) findViewById(R.id.btn_reject_act_second);
         nameToPrint="";
 
         //buttons assigned listeners
@@ -47,7 +47,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
         if (view!=null) {
 
             switch (view.getId()) {
-                case R.id.btn_approve:
+                case R.id.btn_approve_act_second:
                     Intent intent = new Intent();
                     intent.putExtra("text2", textView.getText().toString());
                     Toast.makeText(SecondActivity.this, "Посылаю имейл", Toast.LENGTH_SHORT).show();
@@ -55,7 +55,7 @@ public class SecondActivity extends AppCompatActivity implements View.OnClickLis
                     finish();
                     break;
 
-                case R.id.btn_reject:
+                case R.id.btn_reject_act_second:
                     Intent intent2 = new Intent();
                     intent2.putExtra("text2", textView.getText().toString());
                     setResult(RESULT_CANCELED, intent2);

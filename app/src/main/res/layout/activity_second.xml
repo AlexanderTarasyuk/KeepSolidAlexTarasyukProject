@@ -1,45 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     tools:context="com.example.alextarasyuk.keepsolidalextarasyukproject.SecondActivity">
 
+    <ImageView
+        android:layout_margin="16dp"
+        android:id="@+id/iv_user_avatar"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/ic_launcher" />
+
     <TextView
-        android:id="@+id/text_view"
+        android:id="@+id/tv_act_second"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerInParent="true"
+        android:layout_margin="16dp"
+        android:layout_toEndOf="@+id/iv_user_avatar"
+        android:background="@drawable/circle_online"/>
+
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:gravity="center"
-        android:shadowColor="@color/colorPrimary"
-        android:text="@string/textViewSeconActivity"
-        android:textSize="24dp"
-        android:layout_gravity="center"
-        android:textColor="#0000FF"/>
+        android:layout_below="@+id/iv_user_avatar"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/btn_approve"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:shadowColor="@color/colorAccent"
-        android:text="@string/buttonApprove"
-        android:textSize="24dp"
-        android:layout_gravity="center"
-        android:textColor="#800000"/>
 
-    <Button
-        android:id="@+id/btn_reject"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:shadowColor="@color/colorPrimaryDark"
-        android:text="@string/buttonReject"
-        android:textSize="24dp"
-        android:layout_gravity="center"
-        android:textColor="#A0522D"/>
+        <TextView
+            android:id="@+id/tv_user_name_adapter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="30sp" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_user_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/tv_user_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_approve_act_second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/buttonSend"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btn_reject_act_second"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/buttonReject" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

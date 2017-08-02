@@ -1,58 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragm_text"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#77ff00"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="com.example.alextarasyuk.keepsolidalextarasyukproject.fragments.FragmentText">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/fragm_text"
-        android:textSize="24dp"
-        android:layout_gravity="center_horizontal"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/ed_text_textfrag"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:hint="@string/hint"
-        android:inputType="textEmailAddress"
-        android:shadowColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorAccent"
-        android:textSize="24dp" />
 
-    <CheckBox
-        android:id="@+id/ch_box_frag_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="12dp"
-        android:shadowColor="#00FFFF"
-        android:text="@string/checkBoxName"
-        android:textColor="#D2691E"
-        android:textSize="20dp"
-        />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
 
-    <Button
-        android:id="@+id/btn_clear_frag_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:shadowColor="@color/colorPrimaryDark"
-        android:text="@string/buttonClear"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="20dp"
-        android:layout_gravity="center_horizontal"/>
 
-    <Button
-        android:id="@+id/btn_send_frag_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-android:layout_gravity="center_horizontal"        android:shadowColor="@color/colorPrimaryDark"
-        android:text="@string/buttonSend"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="20dp" />
+    </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
