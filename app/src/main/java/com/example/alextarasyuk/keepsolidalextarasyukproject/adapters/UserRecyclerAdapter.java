@@ -84,8 +84,8 @@ public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapte
         public ViewHolder(View itemView) {
             super(itemView);
             tvUserName = (TextView) itemView.findViewById(R.id.tv_user_name);
-            ivUserCategory = (ImageView) itemView.findViewById(R.id.iv_user_avatar);
-            vUserStatus = itemView.findViewById(R.id.iv_user_category);
+            ivUserCategory = (ImageView) itemView.findViewById(R.id.iv_user_category);
+            vUserStatus = itemView.findViewById(R.id.tv_user_status);
         }
     }
 }
