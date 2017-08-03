@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.alextarasyuk.keepsolidalextarasyukproject.R;
 import com.example.alextarasyuk.keepsolidalextarasyukproject.listeners.OnUserRecyclerItemClickListener;
 import com.example.alextarasyuk.keepsolidalextarasyukproject.model.User;
 
@@ -81,9 +83,9 @@ public class UserRecyclerAdapter extends RecyclerView.Adapter<UserRecyclerAdapte
 
         public ViewHolder(View itemView) {
             super(itemView);
-            tvUserName = (TextView) itemView.findViewById(R.id.tv_user_name_user_adapter);
-            ivUserCategory = (ImageView) itemView.findViewById(R.id.iv_user_category_adapter);
-            vUserStatus = itemView.findViewById(R.id.iv_user_category_adapter);
+            tvUserName = (TextView) itemView.findViewById(R.id.tv_user_name);
+            ivUserCategory = (ImageView) itemView.findViewById(R.id.iv_user_avatar);
+            vUserStatus = itemView.findViewById(R.id.iv_user_category);
         }
     }
 }

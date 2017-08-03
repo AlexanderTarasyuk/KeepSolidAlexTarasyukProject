@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+
+import com.example.alextarasyuk.keepsolidalextarasyukproject.R;
 import com.example.alextarasyuk.keepsolidalextarasyukproject.model.User;
 import java.util.ArrayList;
 
@@ -49,7 +51,7 @@ public class UserAdapter extends BaseAdapter {
 
             holder = new ViewHolder();
 
-            holder.tvUserName = (TextView) v.findViewById(R.id.tv_user_name_user_adapter);
+            holder.tvUserName = (TextView) v.findViewById(R.id.tv_user_name);
             holder.vUserStatus = v.findViewById(R.id.tv_user_category);
 
             v.setTag(holder);
